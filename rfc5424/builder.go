@@ -2,6 +2,7 @@ package rfc5424
 
 import (
 	"fmt"
+	"log"
 	"sort"
 	"time"
 
@@ -9520,6 +9521,8 @@ func (sm *SyslogMessage) SetElementID(value string) Builder {
 // If the element does not exist it creates one with the given element id.
 // When a parameter with the given name already exists for the given element the operation is discarded.
 func (sm *SyslogMessage) SetParameter(id string, name string, value string) Builder {
+	log.Printf("inside setparameter: %s: %s, %s", id, name, value)
+
 	// Create an element with the given id (or re-use the existing one)
 	sm.set(sdid, id)
 
